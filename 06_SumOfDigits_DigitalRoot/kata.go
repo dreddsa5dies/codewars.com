@@ -33,19 +33,20 @@ digital_root(493193)
 package kata
 
 func DigitalRoot(n int) int {
-  if n == 0 {
-    return 0
-  }
-  m := []int{}
-  k := 0
-  for i := 1; i < n; i*=10 {
-		m = append(m, (n/i)%10)
+	if n == 0 {
+		return 0
 	}
-  for _, v := range m {
-    k+=v
-  }
-  for k > 10 {
-    k = DigitalRoot(k)
-  }
-  return k
+	m := []int{}
+	k := 0
+	for n > 0 {
+		m = append(m, n%10)
+		n = n / 10
+	}
+	for _, v := range m {
+		k += v
+	}
+	for k >= 10 {
+		k = DigitalRoot(k)
+	}
+	return k
 }

@@ -6,7 +6,7 @@
 
 ## [Profile](https://www.codewars.com/users/dreddsa5dies)
 
-## Recording format: 08_Multiply  
+## Recording format: 08/08_Multiply 
 * 08 - kata kyu 
 * _ - separator 
 * Multiply - name  

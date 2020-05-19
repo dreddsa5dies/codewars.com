@@ -5,23 +5,25 @@ import (
 )
 
 func RectangleRotation(a, b int) int {
-	pt := 0
-	radius := math.Pow(float64(a)/2, 2) + math.Pow(float64(b)/2, 2)
-	radius = round(math.Pow(radius, .5))
+	aHalfBisect := (float64(a) / math.Sqrt(2)) / 2
+	bHalfBisect := (float64(b) / math.Sqrt(2)) / 2
 
-	mCos := math.Cos(float64(-45) * (math.Pi / 180.0))
-	mSin := math.Sin(float64(-45) * (math.Pi / 180.0))
+	rect1 := []float64{round(aHalfBisect)*2 + 1, round(bHalfBisect)*2 + 1}
+	rect2 := []float64{}
 
-	for i := -radius; i <= radius+1; i++ {
-		for j := -radius; j <= radius+1; j++ {
-			x := i*mCos - j*mSin
-			y := i*mSin + j*mCos
-			if float64(-a/2) <= x && x <= float64(a/2) && float64(-b/2) <= y && y <= float64(b/2) {
-				pt++
-			}
-		}
+	if (aHalfBisect - round(aHalfBisect)) < 0.5 {
+		rect2 = append(rect2, rect1[0]-1)
+	} else {
+		rect2 = append(rect2, rect1[0]+1)
 	}
-	return pt
+
+	if (bHalfBisect - round(bHalfBisect)) < 0.5 {
+		rect2 = append(rect2, rect1[1]-1)
+	} else {
+		rect2 = append(rect2, rect1[1]+1)
+	}
+
+	return int(rect1[0]*rect1[1] + rect2[0]*rect2[1])
 }
 
 func round(x float64) float64 {

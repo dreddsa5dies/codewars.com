@@ -7,20 +7,11 @@ there is no answer, return -1 (nil in Clojure, Nothing in Haskell).
 package kata
 
 func Solve(n int) int {
-	fin := -1
-
-	for i := n*n - 1; i > 0; i-- {
-		if n%i == 0 {
-			bma := n/i - i
-			if bma%2 == 0 {
-				p := bma / 2
-				if p > 0 {
-					fin = p * p
-					break
-				}
-			}
+	res := -1
+	for i := 1; i*i < n; i++ {
+		if n%i == 0 && (n/i-i)%2 == 0 {
+			res = (n/i - i) * (n/i - i) / 4
 		}
 	}
-
-	return fin
+	return res
 }

@@ -2,8 +2,6 @@
 
 ## Solving an interactive collection of programming tasks
 
-[![Buy Me A Coffee](https://www.buymeacoffee.com/assets/img/custom_images/black_img.png)](https://www.buymeacoffee.com/GDNsM0F)  
-
 ## [Profile](https://www.codewars.com/users/dreddsa5dies)
 
 ## Recording format: 08/08_Multiply 
